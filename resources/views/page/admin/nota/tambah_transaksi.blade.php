@@ -74,7 +74,55 @@
                 @enderror
             </div>
 
-            <!-- Add your other form fields for nota here -->
+            <div class="form-group">
+                <label for="inputTglNota">Tanggal Nota</label>
+                <input type="date" id="inputTglNota" name="TglNota" class="form-control @error('TglNota') is-invalid @enderror" value="{{ old('TglNota') }}" required>
+                @error('TglNota')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="inputJamNota">Jam Nota</label>
+                <input type="time" id="inputJamNota" name="JamNota" class="form-control @error('JamNota') is-invalid @enderror" value="{{ old('JamNota') }}" required>
+                @error('JamNota')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="inputJumlahBelanja">Jumlah Belanja</label>
+                <input type="number" step="0.01" id="inputJumlahBelanja" name="JumlahBelanja" class="form-control @error('JumlahBelanja') is-invalid @enderror" value="{{ old('JumlahBelanja') }}" required>
+                @error('JumlahBelanja')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="inputDiskon">Diskon</label>
+                <input type="number" step="0.01" id="inputDiskon" name="Diskon" class="form-control @error('Diskon') is-invalid @enderror" value="{{ old('Diskon') }}" required>
+                @error('Diskon')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="inputTotal">Total</label>
+                <input type="number" step="0.01" id="inputTotal" name="Total" class="form-control @error('Total') is-invalid @enderror" value="{{ old('Total') }}" required>
+                @error('Total')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
 
             <div class="row">
                 <div class="col-12">

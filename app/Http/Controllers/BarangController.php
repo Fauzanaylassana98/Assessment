@@ -15,8 +15,8 @@ class BarangController extends Controller
             $data = DB::table('barangs')->select('*');
             return Datatables::of($data)
                 ->addColumn('options', function ($row) {
-                    $editUrl = route('barang.ubah', ['idBarang' => $row->id]);
-                    $deleteUrl = route('barang.hapus', $row->id);
+                    $editUrl = route('barang.ubah', ['KodeBarang' => $row->KodeBarang]);
+                    $deleteUrl = route('barang.hapus', $row->KodeBarang);
 
                     return '
                             <a href="' . $editUrl . '" class="btn btn-primary"><i class="fas fa-edit"></i></a>
@@ -58,13 +58,13 @@ class BarangController extends Controller
     }
 
 
-    public function ubahBarang($idBarang, Request $request)
+    public function ubahBarang($KodeBarang, Request $request)
     {
-        $barang = Barang::findOrFail($idBarang);
+        $barang = Barang::findOrFail($KodeBarang);
 
         if ($request->isMethod('post')) {
             $this->validate($request, [
-                'KodeBarang' => 'required|string|max:255|unique:barangs,KodeBarang,' . $idBarang,
+                'KodeBarang' => 'required|string|max:255|unique:barangs,KodeBarang,' . $KodeBarang,
                 'NamaBarang' => 'required|string|max:255',
                 'Satuan' => 'required|string|max:18',
                 'HargaSatuan' => 'required|numeric',
@@ -79,9 +79,9 @@ class BarangController extends Controller
         return view('page.admin.barang.ubahBarang', ['barang' => $barang]);
     }
 
-    public function hapusBarang($idBarang)
+    public function hapusBarang($KodeBarang)
     {
-        $barang = Barang::findOrFail($idBarang);
+        $barang = Barang::findOrFail($KodeBarang);
         $barang->delete();
 
         return response()->json([

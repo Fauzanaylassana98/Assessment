@@ -33,7 +33,6 @@ class BarangTableSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            // Tambahkan data barang lainnya sesuai kebutuhan
         ]);
     }
 }

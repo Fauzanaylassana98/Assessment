@@ -54,11 +54,11 @@ Route::group(['prefix' => 'dashboard/admin'], function () {
             ->as('barang.')
             ->group(function () {
                 Route::get('/', 'index')->name('index');
-                Route::get('/{idBarang}/detail', 'detail')->name('detail');
+                Route::get('/{KodeBarang}/detail', 'detail')->name('detail');
                 Route::post('/dataTable', 'dataTable')->name('dataTable');
                 Route::match(['get', 'post'], '/tambah', 'tambahBarang')->name('add');
-                Route::match(['get', 'post'], '/{idBarang}/ubah', 'ubahBarang')->name('ubah');
-                Route::delete('/{idBarang}/hapus', 'hapusBarang')->name('hapus');
+                Route::match(['get', 'post'], '/{KodeBarang}/ubah', 'ubahBarang')->name('ubah');
+                Route::delete('/{KodeBarang}/hapus', 'hapusBarang')->name('hapus');
             });
 
         Route::controller(KasirController::class)
